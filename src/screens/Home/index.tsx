@@ -42,6 +42,7 @@ export function Home() {
                 placeholderTextColor="#7B7B7B"
                 keyboardType="numeric"
                 style={styles.textInput}
+                autoCompleteType="off"
               />
               <TouchableOpacity
                 style={styles.button}
@@ -58,9 +59,8 @@ export function Home() {
               style={styles.box}
               >
                 <Text style={styles.textBox}>
-                Nenhum controle remoto detectado, {`\n`} 
-                pressione a embreagem para reinicializar
-              </Text>
+                  Informe o código do erro no campo acima.
+                </Text>
               </View>
             </View>
           </View>
