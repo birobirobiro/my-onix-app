@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -9,12 +9,35 @@ import {
   Platform,
   Keyboard,
   TouchableWithoutFeedback,
-  StatusBar
+  StatusBar,
+  Alert
 } from 'react-native';
 import { styles } from './styles';
 import { MyOnix } from '../../assets/MyOnix';
 
+import { errors } from '../../utils/codes';
+
 export function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResult, setSearchResult] = useState<string>();
+
+  function handleSearch() {
+    if(!searchTerm) {
+      return
+    }
+
+    Keyboard.dismiss()
+
+    const error = errors.find(({ error }) => {
+      return error.code === searchTerm
+    })?.error.message
+
+    if(!error) {
+      Alert.alert("Código não encontrado")
+      setSearchTerm("")
+    } 
+    setSearchResult(error)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,11 +66,14 @@ export function Home() {
                 keyboardType="numeric"
                 style={styles.textInput}
                 autoCompleteType="off"
+                onChangeText={setSearchTerm}
+                value={searchTerm}
               />
               <TouchableOpacity
                 style={styles.button}
                 activeOpacity={0.7}
-                onPress={Keyboard.dismiss}
+                onPress={() => handleSearch()}
+                disabled={!searchTerm}
               >
                 <Text style={styles.textButton}>
                   Pesquisar
@@ -59,6 +85,7 @@ export function Home() {
               style={styles.box}
               >
                 <Text style={styles.textBox}>
+                  {searchResult}
                   Informe o código do erro no campo acima.
                 </Text>
               </View>

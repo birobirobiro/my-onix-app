@@ -1,4 +1,4 @@
-const errors = [
+export const errors = [
   {
     id: '1',
     error: {
