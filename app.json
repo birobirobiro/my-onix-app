@@ -23,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#121214"
-      }
+      },
+      "package": "com.birobirobiro.myonix",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

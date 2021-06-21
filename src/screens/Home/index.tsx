@@ -85,8 +85,7 @@ export function Home() {
               style={styles.box}
               >
                 <Text style={styles.textBox}>
-                  {searchResult}
-                  Informe o código do erro no campo acima.
+                  {searchResult || `Informe o código do erro no campo acima.`}
                 </Text>
               </View>
             </View>
