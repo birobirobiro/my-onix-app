@@ -37,6 +37,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 43
   },
+  buttonDisabled: {
+    opacity: 0.5,
+  },
   textButton: {
     fontSize: 20,
     fontWeight: 'bold',

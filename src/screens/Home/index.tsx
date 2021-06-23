@@ -39,6 +39,14 @@ export function Home() {
     setSearchResult(error)
   }
 
+  function handleInputChange(textvalue: string){
+    if(textvalue === '') {
+      setSearchResult('')
+    } 
+
+    setSearchTerm(textvalue)  
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -66,11 +74,12 @@ export function Home() {
                 keyboardType="numeric"
                 style={styles.textInput}
                 autoCompleteType="off"
-                onChangeText={setSearchTerm}
+                onChangeText={handleInputChange}
                 value={searchTerm}
+                maxLength={3}
               />
               <TouchableOpacity
-                style={styles.button}
+                style={[styles.button, !searchTerm ? styles.buttonDisabled : {} ]}
                 activeOpacity={0.7}
                 onPress={() => handleSearch()}
                 disabled={!searchTerm}
