@@ -2,7 +2,7 @@
   "expo": {
     "name": "myOnix",
     "slug": "myOnix",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
         "backgroundColor": "#121214"
       },
       "package": "com.birobirobiro.myonix",
-      "versionCode": 1
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
